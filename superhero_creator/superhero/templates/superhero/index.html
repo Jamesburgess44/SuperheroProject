@@ -8,6 +8,11 @@
     <title>Superhero Index</title>
 </head>
 <body>
-<h1>This is a template view!</h1>
+<h1>List of Superheros</h1>
+<ul>
+    {% for superhero in all_superheros %}
+    <li><h2> {{superhero.name}}</h2></li>
+    {% endfor %}
+</ul>
 </body>
 </html>
