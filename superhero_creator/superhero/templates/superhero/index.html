@@ -15,10 +15,11 @@
                     <ul>
                         {% for superhero in all_superheros %}
                         <li><h2> {{superhero.name}} </h2>
-                            <a href="{% url 'superhero:detail' superhero.id %}">See more info</a></li>
+                            <a href="{% url 'superhero:detail' superhero.id %}">See More Info</a></li>
                         {% endfor %}
                     </ul><br/><br/></div>
-                <div class="sol-sm-2" style="background-color:lightblue">.col-sm-2<br/><br/></div>
+                <div class="sol-sm-2" style="background-color:lightblue">
+                    <a href="{% url 'superhero:create' %}">Add New Superhero</a><br/><br/></div>
             </div>
         </div>
     </body>

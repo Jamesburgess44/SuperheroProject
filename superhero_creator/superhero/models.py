@@ -1,6 +1,7 @@
 from django.db import models
 # Create your models here.
 
+
 class Superhero(models.Model):
     name = models.CharField(max_length=50)
     alter_ego_name = models.CharField(max_length=50)
