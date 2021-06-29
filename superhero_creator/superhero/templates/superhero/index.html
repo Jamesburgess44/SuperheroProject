@@ -14,7 +14,8 @@
                 <div class="sol-sm-8" style="background-color:orange">
                     <ul>
                         {% for superhero in all_superheros %}
-                        <li><h2> {{superhero.name}}</h2></li>
+                        <li><h2> {{superhero.name}} </h2>
+                            <a href="{% url 'superhero:detail' superhero.id %}">See more info</a></li>
                         {% endfor %}
                     </ul><br/><br/></div>
                 <div class="sol-sm-2" style="background-color:lightblue">.col-sm-2<br/><br/></div>
