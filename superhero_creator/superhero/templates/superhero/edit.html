@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Superhero</title>
+</head>
+<body>
+<form action="{% url 'superhero:edit' superhero_edit.id %}" method="post">
+    {% csrf_token %}
+    Name:<input type="text" name="name" id="name"><br>
+    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
+    Primary Super Power:<input type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
+    Secondary Super Power:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
+    Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
+    <input type="submit" value="Edit Superhero">
+</form>
+</body>
+</html>

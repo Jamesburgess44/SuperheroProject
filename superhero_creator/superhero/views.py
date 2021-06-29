@@ -22,11 +22,12 @@ def detail(request, superhero_id):
 
 
 def delete(request, superhero_id):
-    all_heroes = Superhero.objects.filter('id=superhero_id:index').delete()
+    superhero_delete = Superhero.objects.get(pk=superhero_id)
+    superhero_delete.delete()
     context = {
-        'all_heroes' : all_heroes
+        'superhero_delete': superhero_delete
     }
-    return render(request, 'superhero/index.html', context)
+    return HttpResponseRedirect(reverse(request, 'specific_hero.id', context))
 
 
 def create(request):
@@ -38,8 +39,31 @@ def create(request):
         catch_phrase = request.POST.get('catch_phrase')
         new_superhero = Superhero(name=name, alter_ego_name=alter_ego_name,
                                   primary_superhero_ability=primary_superhero_ability,
-                                  secondary_superhero_ability=secondary_superhero_ability, catch_phrase=catch_phrase)
+                                  secondary_superhero_ability=secondary_superhero_ability,
+                                  catch_phrase=catch_phrase)
         new_superhero.save()
         return HttpResponseRedirect(reverse('superhero:index'))
     else:
         return render(request, 'superhero/create.html')
+
+
+def edit(request, superhero_id):
+    superhero_edit = Superhero.objects.get(pk=superhero_id)
+    context = {
+            'superhero_edit': superhero_edit
+    }
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        alter_ego_name = request.POST.get('alter_ego')
+        primary_superhero_ability = request.POST.get('primary_superhero_ability')
+        secondary_superhero_ability = request.POST.get('secondary_superhero_ability')
+        catch_phrase = request.POST.get('catchphrase')
+        superhero_edit = Superhero(name=name,
+                                alter_ego_name=alter_ego_name,
+                                primary_superhero_ability=primary_superhero_ability,
+                                secondary_superhero_ability=secondary_superhero_ability,
+                                catch_phrase=catch_phrase)
+        superhero_edit.save(superhero_id)
+        return HttpResponseRedirect(reverse('superhero:index'))
+    else:
+        return render(request, "superhero/edit.html", context)

@@ -8,26 +8,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Document</title>
 </head>
-<body>
-   <div class="container-fluid">
-        <center>
-            <div class="row">
-                <div class="sol-sm-2" style="background-color:lightblue"><h1>Superhero Details</h1><br/><br/></div>
-                <div class="sol-sm-8" style="background-color:orange">
-            <h1>{{specific_hero.name}}</h1>
-            <table border="1">
-                <tr>
-                    <th>Alter-Ego</th>
-                    <th>Primary Ability</th>
-                    <th>Secondary Ability</th>
-                    <th>Catchphrase</th>
-                </tr>
-                <tr>
-                    <td>{{specific_hero.alter_ego_name}}</td>
-                    <td>{{specific_hero.primary_superhero_ability}}</td>
-                    <td>{{specific_hero.secondary_superhero_ability}}</td>
-                    <td>{{specific_hero.catch_phrase}}</td>
-                </tr>
-                <div class="sol-sm-2" style="background-color:lightblue">
-</body>
+    <body>
+       <div class="container-fluid">
+            <center>
+                <div class="row">
+                    <div class="sol-sm-2" style="background-color:lightblue"><h1>Superhero Details</h1><br/><br/></div>
+                    <div class="sol-sm-8" style="background-color:orange">
+                    <h1>{{specific_hero.name}}</h1>
+                    <table border="1">
+                        <tr>
+                            <th>Alter-Ego</th>
+                            <th>Primary Ability</th>
+                            <th>Secondary Ability</th>
+                            <th>Catchphrase</th>
+                        </tr>
+                        <tr>
+                            <td>{{specific_hero.alter_ego_name}}</td>
+                            <td>{{specific_hero.primary_superhero_ability}}</td>
+                            <td>{{specific_hero.secondary_superhero_ability}}</td>
+                            <td>{{specific_hero.catch_phrase}}</td>
+                        </tr>
+                            <a href="{% url 'superhero:edit' specific_hero.id %}">Edit Superhero Info</a>
+                            <a href="{% url 'superhero:delete' specific_hero.id %}"><input type="submit" value="Delete"></a>
+                        <div class="sol-sm-2" style="background-color:lightblue"></div>
+                    </table>
+                </div>
+    </body>
 </html>
