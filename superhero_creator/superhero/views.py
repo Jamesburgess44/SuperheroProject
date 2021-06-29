@@ -4,7 +4,7 @@ from .models import Superhero
 # Create your views here.
 
 
-def index(request):
+def index(request,):
     all_superheros = Superhero.objects.all()
     context = {
         'all_superheros': all_superheros
