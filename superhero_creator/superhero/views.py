@@ -21,6 +21,14 @@ def detail(request, superhero_id):
     return render(request, 'superhero/detail.html', context)
 
 
+def delete(request, superhero_id):
+    all_heroes = Superhero.objects.filter('id=superhero_id:index').delete()
+    context = {
+        'all_heroes' : all_heroes
+    }
+    return render(request, 'superhero/index.html', context)
+
+
 def create(request):
     if request.method == 'POST':
         name = request.POST.get('name')
